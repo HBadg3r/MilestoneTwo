@@ -69,7 +69,7 @@ namespace MilestoneOne
 
         public string printItem()
         {
-            return "Name: " + this.name + "Size: " + this.size + "Stickered: " + this.stickered.ToString() + "Lubes: " + this.lubes + "Coating: " + this.coating + "Logo: " + this.logo;
+            return "Name: " + this.name + " \nSize: " + this.size + " \nStickered: " + this.stickered.ToString() + " \nLubes: " + this.lubes + " \nCoating: " + this.coating + " \nLogo: " + this.logo;
         }
         public string getName()
         {
