@@ -29,6 +29,8 @@ namespace MilestoneOne
 
         private void buttonAddInventoryItem_Click(object sender, EventArgs e)
         {
+            //Two lines of code to be able to access addInventoryItem from the original form.
+            //Tip: don't hide the original form otherwise you have to delete the *projectName*.exe from the debug file :/ that took me a while to figure out
             addInventoryItem addInventoryItem = new addInventoryItem();
             addInventoryItem.ShowDialog();
         }
