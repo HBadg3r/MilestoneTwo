@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//Program Name: addInventoryItem.cs
+//Author: Easten Elefson
+//Date: 09/07/2023
 
 namespace MilestoneOne
 {
@@ -45,64 +48,21 @@ namespace MilestoneOne
             string lubes = createLubesTextBox.Text;
             string coating = createCoatingTextBox.Text;
             string logo = createLogoTextBox.Text;
-
+            int count;
+            int.TryParse(createCountTextBox.Text, out count);
             //create the new object with information collected from previous variables. 
-            inventoryItem newItem = new inventoryItem(name, size, stickered, lubes, coating, logo);
+            inventoryItem newItem = new inventoryItem(name, size, stickered, lubes, coating, logo, count);
             //print the value of newItem to verify that the correct values were assigned. 
             yourItemTextBox.Text = newItem.printItem();
-        }
-    }
-    class inventoryItem
-    {
-        //Initialize class variables. 
-        string name;
-        string size;
-        bool stickered;
-        string lubes;
-        string coating;
-        string logo;
+            inventoryManager.AddItem(newItem);
 
-        //Constructor to initalize object with correct values. 
-        public inventoryItem(string name, string size, bool stickered, string lubes, string coating, string logo)
-        {
-            this.name = name;
-            this.size = size;
-            this.stickered = stickered;
-            this.lubes = lubes;
-            this.coating = coating;
-            this.logo = logo;
         }
 
-        //This printitem function is intented to return all of the values of the object at the same time in a single string.
-        public string printItem()
-        {
-            return "Name: " + this.name + " \nSize: " + this.size + " \nStickered: " + this.stickered.ToString() + " \nLubes: " + this.lubes + " \nCoating: " + this.coating + " \nLogo: " + this.logo;
-        }
 
-        //Since this.name is a private variable, being able to return this.name could be helpfull in the future. 
-        public string getName()
+        //Method to close the form and return to the original form
+        private void closeFormButton_Click(object sender, EventArgs e)
         {
-            return this.name;
-        }
-        //Since this.size is a private variable, being able to return this.size could be helpfull in the future. 
-        public string getSize()
-        {
-            return this.size;
-        }
-        //Since this.stickered is a private variable, being able to return this.stickered could be helpfull in the future. 
-        public bool getStickered()
-        {
-            return this.stickered;
-        }
-        //Since this.coating is a private variable, being able to return this.coating could be helpfull in the future. 
-        public string getCoating()
-        {
-            return this.coating;
-        }
-        //Since this.logo is a private variable, being able to return this.logo could be helpfull in the future. 
-        public string getLogo()
-        {
-            return this.logo;
+            addInventoryItem.ActiveForm.Close();
         }
     }
 

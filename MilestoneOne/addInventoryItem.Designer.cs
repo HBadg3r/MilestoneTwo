@@ -45,6 +45,9 @@ namespace MilestoneOne
             this.createStickeredRadioYes = new System.Windows.Forms.RadioButton();
             this.createStickeredRadioNo = new System.Windows.Forms.RadioButton();
             this.yourItemTextBox = new System.Windows.Forms.TextBox();
+            this.createCountLabel = new System.Windows.Forms.Label();
+            this.createCountTextBox = new System.Windows.Forms.TextBox();
+            this.closeFormButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // createLubesTextBox
@@ -63,7 +66,7 @@ namespace MilestoneOne
             // 
             // createNameTextBox
             // 
-            this.createNameTextBox.Location = new System.Drawing.Point(12, 78);
+            this.createNameTextBox.Location = new System.Drawing.Point(12, 75);
             this.createNameTextBox.Name = "createNameTextBox";
             this.createNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.createNameTextBox.TabIndex = 7;
@@ -79,7 +82,7 @@ namespace MilestoneOne
             // 
             // addItemButton
             // 
-            this.addItemButton.Location = new System.Drawing.Point(12, 220);
+            this.addItemButton.Location = new System.Drawing.Point(11, 271);
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(75, 23);
             this.addItemButton.TabIndex = 14;
@@ -117,7 +120,7 @@ namespace MilestoneOne
             // createStickeredLabel
             // 
             this.createStickeredLabel.AutoSize = true;
-            this.createStickeredLabel.Location = new System.Drawing.Point(12, 113);
+            this.createStickeredLabel.Location = new System.Drawing.Point(13, 206);
             this.createStickeredLabel.Name = "createStickeredLabel";
             this.createStickeredLabel.Size = new System.Drawing.Size(94, 13);
             this.createStickeredLabel.TabIndex = 17;
@@ -158,7 +161,7 @@ namespace MilestoneOne
             // createStickeredRadioYes
             // 
             this.createStickeredRadioYes.AutoSize = true;
-            this.createStickeredRadioYes.Location = new System.Drawing.Point(12, 131);
+            this.createStickeredRadioYes.Location = new System.Drawing.Point(13, 224);
             this.createStickeredRadioYes.Name = "createStickeredRadioYes";
             this.createStickeredRadioYes.Size = new System.Drawing.Size(41, 17);
             this.createStickeredRadioYes.TabIndex = 23;
@@ -169,7 +172,7 @@ namespace MilestoneOne
             // createStickeredRadioNo
             // 
             this.createStickeredRadioNo.AutoSize = true;
-            this.createStickeredRadioNo.Location = new System.Drawing.Point(59, 132);
+            this.createStickeredRadioNo.Location = new System.Drawing.Point(60, 225);
             this.createStickeredRadioNo.Name = "createStickeredRadioNo";
             this.createStickeredRadioNo.Size = new System.Drawing.Size(37, 17);
             this.createStickeredRadioNo.TabIndex = 24;
@@ -179,16 +182,45 @@ namespace MilestoneOne
             // 
             // yourItemTextBox
             // 
-            this.yourItemTextBox.Location = new System.Drawing.Point(12, 250);
+            this.yourItemTextBox.Location = new System.Drawing.Point(11, 301);
             this.yourItemTextBox.Name = "yourItemTextBox";
             this.yourItemTextBox.Size = new System.Drawing.Size(207, 20);
             this.yourItemTextBox.TabIndex = 25;
+            // 
+            // createCountLabel
+            // 
+            this.createCountLabel.AutoSize = true;
+            this.createCountLabel.Location = new System.Drawing.Point(12, 113);
+            this.createCountLabel.Name = "createCountLabel";
+            this.createCountLabel.Size = new System.Drawing.Size(38, 13);
+            this.createCountLabel.TabIndex = 27;
+            this.createCountLabel.Text = "Count:";
+            // 
+            // createCountTextBox
+            // 
+            this.createCountTextBox.Location = new System.Drawing.Point(12, 129);
+            this.createCountTextBox.Name = "createCountTextBox";
+            this.createCountTextBox.Size = new System.Drawing.Size(100, 20);
+            this.createCountTextBox.TabIndex = 26;
+            // 
+            // closeFormButton
+            // 
+            this.closeFormButton.Location = new System.Drawing.Point(143, 271);
+            this.closeFormButton.Name = "closeFormButton";
+            this.closeFormButton.Size = new System.Drawing.Size(75, 23);
+            this.closeFormButton.TabIndex = 28;
+            this.closeFormButton.Text = "Close Form";
+            this.closeFormButton.UseVisualStyleBackColor = true;
+            this.closeFormButton.Click += new System.EventHandler(this.closeFormButton_Click);
             // 
             // addInventoryItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.closeFormButton);
+            this.Controls.Add(this.createCountLabel);
+            this.Controls.Add(this.createCountTextBox);
             this.Controls.Add(this.yourItemTextBox);
             this.Controls.Add(this.createStickeredRadioNo);
             this.Controls.Add(this.createStickeredRadioYes);
@@ -230,5 +262,8 @@ namespace MilestoneOne
         private System.Windows.Forms.RadioButton createStickeredRadioYes;
         private System.Windows.Forms.RadioButton createStickeredRadioNo;
         private System.Windows.Forms.TextBox yourItemTextBox;
+        private System.Windows.Forms.Label createCountLabel;
+        private System.Windows.Forms.TextBox createCountTextBox;
+        private System.Windows.Forms.Button closeFormButton;
     }
 }
