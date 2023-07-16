@@ -26,33 +26,10 @@ namespace MilestoneOne
 
         }
 
-        private void buttonAddInventoryItem_Click(object sender, EventArgs e)
+        //When this button is clicked, simply call the searchItem method. 
+        private void searchButton_Click(object sender, EventArgs e)
         {
-            //Two lines of code to be able to access addInventoryItem from the original form.
-            //Tip: don't hide the original form otherwise you have to delete the *projectName*.exe from the debug file :/ that took me a while to figure out.
-            addInventoryItem addInventoryItem = new addInventoryItem();
-            addInventoryItem.ShowDialog();
-        }
-
-        private void inventoryListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        //Upon clicking the display inventory button this will use the displayItems() method in inventoryManager to display the inventory.
-        private void displayInventory_Click(object sender, EventArgs e)
-        {
-            //Clear the inventory so that there are no duplicates.
-            inventoryListBox.Items.Clear();
-            //Use the displayItems() method to return an array of strings, each value representing an inventory item.
-            string[] items = inventoryManager.displayItems();
-            //Loop through the returned array to display the inventory items. I wanted to do this in the displayItems method but I couldnt access the listBox from the inventoryManager class. 
-            //I just couldnt figure out a way to use the inventoryManager class to actually change the inventory form, so the actual printing is done by this method. 
-            for(int i = 0; i < inventoryManager.inventory.Count(); i++)
-            {
-                inventoryListBox.Items.Add(items[i]);
-            }
-
+            inventoryManager.searchItem(searchNameTextBox.Text, searchSizeTextBox.Text);
         }
 
 
@@ -80,12 +57,48 @@ namespace MilestoneOne
             inventoryManager.restockItem(index, amount);
         }
 
-        //When this button is clicked, simply call the searchItem method. 
-        private void searchButton_Click(object sender, EventArgs e)
+
+        //Upon clicking the display inventory button this will use the displayItems() method in inventoryManager to display the inventory.
+        private void displayInventory_Click(object sender, EventArgs e)
         {
-            inventoryManager.searchItem(searchNameTextBox.Text, searchSizeTextBox.Text);
+            //Clear the inventory so that there are no duplicates.
+            inventoryListBox.Items.Clear();
+            //Use the displayItems() method to return an array of strings, each value representing an inventory item.
+            List<string> items = inventoryManager.displayItems();
+            //Loop through the returned array to display the inventory items. I wanted to do this in the displayItems method but I couldnt access the listBox from the inventoryManager class. 
+            //I just couldnt figure out a way to use the inventoryManager class to actually change the inventory form, so the actual printing is done by this method. 
+            //If you could explain why the other classes cannot access the form controls and change them, as well as how do get around that (for example making the listBox public) that would be awesome.
+            //It would really help my project in the future. 
+            for (int i = 0; i < inventoryManager.inventory.Count(); i++)
+            {
+                inventoryListBox.Items.Add(items[i]);
+            }
+
+        }
+
+        private void buttonAddInventoryItem_Click(object sender, EventArgs e)
+        {
+            //Two lines of code to be able to access addInventoryItem from the original form.
+            //Tip: don't hide the original form otherwise you have to delete the *projectName*.exe from the debug file :/ that took me a while to figure out.
+            addInventoryItem addInventoryItem = new addInventoryItem();
+            addInventoryItem.ShowDialog();
+        }
+
+        private void inventoryListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //Open the modify item form when the button is pressed
+        private void buttonModifyItem_Click(object sender, EventArgs e)
+        {
+            formModifyItem formModifyItem = new formModifyItem();
+            formModifyItem.ShowDialog();
         }
     }
+
+
+
 
     public class inventoryManager
     {
@@ -101,17 +114,18 @@ namespace MilestoneOne
 
         //This method, because I couldn't figure out how to make the method change a listBox, just creates a list of strings.
         //Each string contains all of the information about an inventory item. The array is then returned.
-        public static string[] displayItems()
+        public static List<string> displayItems()
         {
 
             //Creat the array
-            string[] inventoryString = new string[100];
+            List<string> inventoryString = new List<string>();
             //Loop through the inventory.
             for (int i = 0; i < inventory.Count(); i++)
             {
                 //Make a long string that contains all relevent information about an item. 
-                inventoryString[i] += "Index: " + i + " Name: " + inventory[i].getName().ToString() + " Size: " + inventory[i].getSize().ToString() + " Lubes: " + inventory[i].getLubes().ToString() + " Coating: " + inventory[i].getCoating().ToString() + " Logo: " + inventory[i].getLogo().ToString() + " Stickered: " + inventory[i].getStickered().ToString() + " Count: " + inventory[i].getCount().ToString();
+                inventoryString.Add("Index: " + i + " Name: " + inventory[i].getName().ToString() + " Size: " + inventory[i].getSize().ToString() + " Lubes: " + inventory[i].getLubes().ToString() + " Coating: " + inventory[i].getCoating().ToString() + " Logo: " + inventory[i].getLogo().ToString() + " Stickered: " + inventory[i].getStickered().ToString() + " Count: " + inventory[i].getCount().ToString());
             }
+
             //Return the array.
             return inventoryString;
 
@@ -144,6 +158,19 @@ namespace MilestoneOne
                 }
             }
         }
+
+        //Modifies an existing item based
+        public static void modifyItem(int index, string name, string size, bool stickered, string lubes, string coating, string logo, int count)
+        {
+            inventory[index].setName(name);
+            inventory[index].setSize(size);
+            inventory[index].setStickered(stickered);
+            inventory[index].setLubes(lubes);
+            inventory[index].setCoating(coating);
+            inventory[index].setLogo(logo);
+            inventory[index].setCount(count);
+
+        }
     }
 
 
@@ -174,35 +201,35 @@ namespace MilestoneOne
         //This printitem function is intented to return all of the values of the object at the same time in a single string.
         public string printItem()
         {
-            return "Name: " + this.name + " \nSize: " + this.size + " \nStickered: " + this.stickered.ToString() + " \nLubes: " + this.lubes + " \nCoating: " + this.coating + " \nLogo: " + this.logo;
+            return "Name: " + this.name + " Size: " + this.size + " Stickered: " + this.stickered.ToString() + " Lubes: " + this.lubes + " Coating: " + this.coating + " Logo: " + this.logo;
         }
 
-        //Since this.name is a private variable, being able to return this.name could be helpful in the future. 
+        //Since this.name is a private variable, being able to return this.name could be helpful  
         public string getName()
         {
             return this.name;
         }
-        //Since this.size is a private variable, being able to return this.size could be helpful in the future. 
+        //Since this.size is a private variable, being able to return this.size could be helpful  
         public string getSize()
         {
             return this.size;
         }
-        //Since this.stickered is a private variable, being able to return this.stickered could be helpful in the future. 
+        //Since this.stickered is a private variable, being able to return this.stickered could be helpful  
         public bool getStickered()
         {
             return this.stickered;
         }
-        //Since this.coating is a private variable, being able to return this.coating could be helpful in the future. 
+        //Since this.coating is a private variable, being able to return this.coating could be helpful  
         public string getCoating()
         {
             return this.coating;
         }
-        //Since this.logo is a private variable, being able to return this.logo could be helpful in the future. 
+        //Since this.logo is a private variable, being able to return this.logo could be helpful  
         public string getLogo()
         {
             return this.logo;
         }
-        //Since this.lubes is a private variable, being able to return this.lubes could be helpful in the future.
+        //Since this.lubes is a private variable, being able to return this.lubes could be helpful 
         public string getLubes()
         {
             return this.lubes;
@@ -211,6 +238,44 @@ namespace MilestoneOne
         public int getCount()
         {
             return this.count;
+        }
+
+
+
+        //Since this.name is a private variable, being able to change this.name could be helpful  
+        public void setName(string name)
+        {
+            this.name = name;
+        }
+        //Since this.size is a private variable, being able to change this.size could be helpful  
+        public void setSize(string size)
+        {
+            this.size = size;
+        }
+        //Since this.stickered is a private variable, being able to change this.stickered could be helpful  
+        public void setStickered(bool stickered)
+        {
+            this.stickered = stickered;
+        }
+        //Since this.coating is a private variable, being able to change this.coating could be helpful  
+        public void setCoating(string coating)
+        {
+            this.coating = coating;
+        }
+        //Since this.logo is a private variable, being able to change this.logo could be helpful  
+        public void setLogo(string logo)
+        {
+            this.logo = logo;
+        }
+        //Since this.lubes is a private variable, being able to change this.lubes could be helpful 
+        public void setLubes(string lubes)
+        {
+            this.lubes = lubes;
+        }
+        //For consistency, even though this variable is public, I created this method. 
+        public void setCount(int count)
+        {
+            this.count = count;
         }
     }
 }

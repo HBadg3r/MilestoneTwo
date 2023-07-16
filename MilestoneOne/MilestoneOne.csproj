@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formModifyItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formModifyItem.Designer.cs">
+      <DependentUpon>formModifyItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="removeInventoryItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="addInventoryItem.resx">
       <DependentUpon>addInventoryItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formModifyItem.resx">
+      <DependentUpon>formModifyItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="inventory.resx">
       <DependentUpon>inventory.cs</DependentUpon>

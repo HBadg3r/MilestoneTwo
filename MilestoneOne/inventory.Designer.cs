@@ -46,11 +46,12 @@ namespace MilestoneOne
             this.searchSizeTextBox = new System.Windows.Forms.TextBox();
             this.searchNameTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.buttonModifyItem = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonAddInventoryItem
             // 
-            this.buttonAddInventoryItem.Location = new System.Drawing.Point(669, 12);
+            this.buttonAddInventoryItem.Location = new System.Drawing.Point(493, 171);
             this.buttonAddInventoryItem.Name = "buttonAddInventoryItem";
             this.buttonAddInventoryItem.Size = new System.Drawing.Size(111, 35);
             this.buttonAddInventoryItem.TabIndex = 7;
@@ -60,7 +61,7 @@ namespace MilestoneOne
             // 
             // buttonRemoveInventoryItem
             // 
-            this.buttonRemoveInventoryItem.Location = new System.Drawing.Point(153, 27);
+            this.buttonRemoveInventoryItem.Location = new System.Drawing.Point(445, 12);
             this.buttonRemoveInventoryItem.Name = "buttonRemoveInventoryItem";
             this.buttonRemoveInventoryItem.Size = new System.Drawing.Size(135, 35);
             this.buttonRemoveInventoryItem.TabIndex = 8;
@@ -71,24 +72,24 @@ namespace MilestoneOne
             // labelInventoryList
             // 
             this.labelInventoryList.AutoSize = true;
-            this.labelInventoryList.Location = new System.Drawing.Point(10, 160);
+            this.labelInventoryList.Location = new System.Drawing.Point(9, 197);
             this.labelInventoryList.Name = "labelInventoryList";
-            this.labelInventoryList.Size = new System.Drawing.Size(73, 13);
+            this.labelInventoryList.Size = new System.Drawing.Size(54, 13);
             this.labelInventoryList.TabIndex = 17;
-            this.labelInventoryList.Text = "Inventory List:";
+            this.labelInventoryList.Text = "Inventory:";
             // 
             // inventoryListBox
             // 
             this.inventoryListBox.FormattingEnabled = true;
-            this.inventoryListBox.Location = new System.Drawing.Point(13, 176);
+            this.inventoryListBox.Location = new System.Drawing.Point(12, 213);
             this.inventoryListBox.Name = "inventoryListBox";
-            this.inventoryListBox.Size = new System.Drawing.Size(513, 264);
+            this.inventoryListBox.Size = new System.Drawing.Size(710, 225);
             this.inventoryListBox.TabIndex = 18;
             this.inventoryListBox.SelectedIndexChanged += new System.EventHandler(this.inventoryListBox_SelectedIndexChanged);
             // 
             // displayInventory
             // 
-            this.displayInventory.Location = new System.Drawing.Point(669, 56);
+            this.displayInventory.Location = new System.Drawing.Point(610, 171);
             this.displayInventory.Name = "displayInventory";
             this.displayInventory.Size = new System.Drawing.Size(111, 36);
             this.displayInventory.TabIndex = 19;
@@ -98,21 +99,21 @@ namespace MilestoneOne
             // 
             // indexRemoveTextBox
             // 
-            this.indexRemoveTextBox.Location = new System.Drawing.Point(153, 84);
+            this.indexRemoveTextBox.Location = new System.Drawing.Point(445, 69);
             this.indexRemoveTextBox.Name = "indexRemoveTextBox";
             this.indexRemoveTextBox.Size = new System.Drawing.Size(135, 20);
             this.indexRemoveTextBox.TabIndex = 20;
             // 
             // restockIndexTextBox
             // 
-            this.restockIndexTextBox.Location = new System.Drawing.Point(294, 84);
+            this.restockIndexTextBox.Location = new System.Drawing.Point(586, 69);
             this.restockIndexTextBox.Name = "restockIndexTextBox";
             this.restockIndexTextBox.Size = new System.Drawing.Size(135, 20);
             this.restockIndexTextBox.TabIndex = 22;
             // 
             // increaseStockButton
             // 
-            this.increaseStockButton.Location = new System.Drawing.Point(294, 27);
+            this.increaseStockButton.Location = new System.Drawing.Point(586, 12);
             this.increaseStockButton.Name = "increaseStockButton";
             this.increaseStockButton.Size = new System.Drawing.Size(135, 35);
             this.increaseStockButton.TabIndex = 21;
@@ -122,7 +123,7 @@ namespace MilestoneOne
             // 
             // amountStockTextBox
             // 
-            this.amountStockTextBox.Location = new System.Drawing.Point(294, 127);
+            this.amountStockTextBox.Location = new System.Drawing.Point(586, 112);
             this.amountStockTextBox.Name = "amountStockTextBox";
             this.amountStockTextBox.Size = new System.Drawing.Size(135, 20);
             this.amountStockTextBox.TabIndex = 23;
@@ -130,7 +131,7 @@ namespace MilestoneOne
             // stockIndexLabel
             // 
             this.stockIndexLabel.AutoSize = true;
-            this.stockIndexLabel.Location = new System.Drawing.Point(294, 68);
+            this.stockIndexLabel.Location = new System.Drawing.Point(586, 53);
             this.stockIndexLabel.Name = "stockIndexLabel";
             this.stockIndexLabel.Size = new System.Drawing.Size(77, 13);
             this.stockIndexLabel.TabIndex = 24;
@@ -139,7 +140,7 @@ namespace MilestoneOne
             // amountStockLabel
             // 
             this.amountStockLabel.AutoSize = true;
-            this.amountStockLabel.Location = new System.Drawing.Point(294, 110);
+            this.amountStockLabel.Location = new System.Drawing.Point(586, 95);
             this.amountStockLabel.Name = "amountStockLabel";
             this.amountStockLabel.Size = new System.Drawing.Size(101, 13);
             this.amountStockLabel.TabIndex = 25;
@@ -148,7 +149,7 @@ namespace MilestoneOne
             // indexRemoveLabel
             // 
             this.indexRemoveLabel.AutoSize = true;
-            this.indexRemoveLabel.Location = new System.Drawing.Point(150, 65);
+            this.indexRemoveLabel.Location = new System.Drawing.Point(442, 50);
             this.indexRemoveLabel.Name = "indexRemoveLabel";
             this.indexRemoveLabel.Size = new System.Drawing.Size(120, 13);
             this.indexRemoveLabel.TabIndex = 26;
@@ -157,7 +158,7 @@ namespace MilestoneOne
             // searchSizeLabel
             // 
             this.searchSizeLabel.AutoSize = true;
-            this.searchSizeLabel.Location = new System.Drawing.Point(13, 110);
+            this.searchSizeLabel.Location = new System.Drawing.Point(14, 98);
             this.searchSizeLabel.Name = "searchSizeLabel";
             this.searchSizeLabel.Size = new System.Drawing.Size(30, 13);
             this.searchSizeLabel.TabIndex = 30;
@@ -166,7 +167,7 @@ namespace MilestoneOne
             // searchNameLabel
             // 
             this.searchNameLabel.AutoSize = true;
-            this.searchNameLabel.Location = new System.Drawing.Point(12, 68);
+            this.searchNameLabel.Location = new System.Drawing.Point(13, 56);
             this.searchNameLabel.Name = "searchNameLabel";
             this.searchNameLabel.Size = new System.Drawing.Size(38, 13);
             this.searchNameLabel.TabIndex = 29;
@@ -174,21 +175,21 @@ namespace MilestoneOne
             // 
             // searchSizeTextBox
             // 
-            this.searchSizeTextBox.Location = new System.Drawing.Point(12, 127);
+            this.searchSizeTextBox.Location = new System.Drawing.Point(13, 115);
             this.searchSizeTextBox.Name = "searchSizeTextBox";
             this.searchSizeTextBox.Size = new System.Drawing.Size(135, 20);
             this.searchSizeTextBox.TabIndex = 28;
             // 
             // searchNameTextBox
             // 
-            this.searchNameTextBox.Location = new System.Drawing.Point(12, 84);
+            this.searchNameTextBox.Location = new System.Drawing.Point(13, 72);
             this.searchNameTextBox.Name = "searchNameTextBox";
             this.searchNameTextBox.Size = new System.Drawing.Size(135, 20);
             this.searchNameTextBox.TabIndex = 27;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(12, 27);
+            this.searchButton.Location = new System.Drawing.Point(12, 12);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(111, 35);
             this.searchButton.TabIndex = 31;
@@ -196,11 +197,22 @@ namespace MilestoneOne
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // buttonModifyItem
+            // 
+            this.buttonModifyItem.Location = new System.Drawing.Point(304, 12);
+            this.buttonModifyItem.Name = "buttonModifyItem";
+            this.buttonModifyItem.Size = new System.Drawing.Size(135, 35);
+            this.buttonModifyItem.TabIndex = 32;
+            this.buttonModifyItem.Text = "Modify Item";
+            this.buttonModifyItem.UseVisualStyleBackColor = true;
+            this.buttonModifyItem.Click += new System.EventHandler(this.buttonModifyItem_Click);
+            // 
             // inventorySystemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 450);
+            this.ClientSize = new System.Drawing.Size(734, 450);
+            this.Controls.Add(this.buttonModifyItem);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchSizeLabel);
             this.Controls.Add(this.searchNameLabel);
@@ -230,7 +242,6 @@ namespace MilestoneOne
         private System.Windows.Forms.Button buttonAddInventoryItem;
         private System.Windows.Forms.Button buttonRemoveInventoryItem;
         private System.Windows.Forms.Label labelInventoryList;
-        private System.Windows.Forms.ListBox inventoryListBox;
         private System.Windows.Forms.Button displayInventory;
         private System.Windows.Forms.TextBox indexRemoveTextBox;
         private System.Windows.Forms.TextBox restockIndexTextBox;
@@ -244,6 +255,8 @@ namespace MilestoneOne
         private System.Windows.Forms.TextBox searchSizeTextBox;
         private System.Windows.Forms.TextBox searchNameTextBox;
         private System.Windows.Forms.Button searchButton;
+        public System.Windows.Forms.ListBox inventoryListBox;
+        private System.Windows.Forms.Button buttonModifyItem;
     }
 }
 
